@@ -31,15 +31,19 @@ fi
 echo "Saved to $LOCAL_ZIP_PATH"
 
 # AppleScript to open new Outlook email with the zip attached
-osascript <<EOF
-tell application "Microsoft Outlook"
-    set newMessage to make new outgoing message with properties {subject:"Export: $FOLDER_NAME", content:"Attached is the export for $FOLDER_NAME."}
-    make new recipient at newMessage with properties {email address:{name:"", address:"$EMAIL"}}
-    make new attachment at newMessage with properties {file:POSIX file "$LOCAL_ZIP_PATH"}
-    open newMessage
-    activate
-end tell
+if [[ -n $(which osascript) ]];
+then
+	osascript <<EOF
+	tell application "Microsoft Outlook"
+	    set newMessage to make new outgoing message with properties {subject:"Export: $FOLDER_NAME", content:"Attached is the export for $FOLDER_NAME."}
+	    make new recipient at newMessage with properties {email address:{name:"", address:"$EMAIL"}}
+	    make new attachment at newMessage with properties {file:POSIX file "$LOCAL_ZIP_PATH"}
+	    open newMessage
+	    activate
+	end tell
 EOF
 
-echo "Outlook email ready with attachment."
+
+	echo "Outlook email ready with attachment."
+fi
 
