@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Usage: ./download_and_mail.sh <ssh_hosts> <remote_folder> <email_address>
+# Usage: ./download_and_mail.sh <remote_folder> <email_address>
 
 # Arguments
 REMOTE_USER_HOST=$1
