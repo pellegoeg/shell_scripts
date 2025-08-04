@@ -1,5 +1,6 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 # Usage: ./download_and_mail.sh <remote_folder> <email_address>
 
 # Config
@@ -7,6 +8,13 @@ REMOTE_USER_HOST=$1
 REMOTE_BASE_PATH=$(dirname $2)
 
 # Arguments
+=======
+# Usage: ./download_and_mail.sh <ssh_hosts> <remote_folder> <email_address>
+
+# Arguments
+REMOTE_USER_HOST=$1
+REMOTE_BASE_PATH=$(dirname $2)
+>>>>>>> a01f447 (added download from ssh script)
 FOLDER_NAME=$(basename "$2")
 EMAIL="$3"
 
